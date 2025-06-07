@@ -144,14 +144,29 @@
 
     static void BorrarEmpleado()
     {
-        Console.WriteLine($"Nombre Actual:");
-        string nombreABorrar = Console.ReadLine();
-        List<string> listaBorrar = new List<string>(nombre);
-        listaBorrar.Remove(nombreABorrar);
-        nombre = listaBorrar.ToArray();
+        Console.WriteLine("Ingrese el nombre del empleado que desea borrar");
+        string nombreTemporal = Console.ReadLine();
 
-        Console.WriteLine("Empleado borrado");
+
+        for (int i = 0; i < nombre.Length; i++)
+        {
+            if (nombreTemporal.Equals(nombre[i]))
+            {
+                nombre[i] = null;
+                cedula[i] = null;
+                salario[i] = null;
+                Console.WriteLine("Empleado borrado");
+            }
+            else
+            {
+                Console.WriteLine("Empleado no encontrado");
+            }
+            
+
+
+        }
     }
+
     static void reportes()
     {
         for (int i = 0; i < nombre.Length; i++)
@@ -160,6 +175,7 @@
             Console.WriteLine($"Nombre del empleado: {nombre[i]}, Cedula: {cedula[i]}, Salario: {salario[i]}, ");
         }
     }
+
     public static void menu()
     {
         byte op = 0;
@@ -204,3 +220,8 @@
     }
 }
 
+//Console.WriteLine($"Nombre Actual:");
+//string nombreABorrar = Console.ReadLine();
+//List<string> listaBorrar = new List<string>(nombre);
+//listaBorrar.Remove(nombreABorrar);
+//nombre = listaBorrar.ToArray();
